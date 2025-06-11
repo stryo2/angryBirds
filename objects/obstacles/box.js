@@ -3,12 +3,14 @@ class Box{
     constructor(x, y, width, height) {
        var options={
             restitution: 0.2, // Bounciness
-            friction: 0.1, // Friction
+            friction: 0.6, // Friction
+            mass:2,
         }
         this.body = Matter.Bodies.rectangle(x , y , width, height,options);
         Matter.World.add(world, this.body);
         this.width = width;
         this.height = height;
+        this.image = loadImage('data/obstacles/greenpig.png'); // Load the box image
 }    
     show(){
         const pos = this.body.position;
@@ -19,10 +21,8 @@ class Box{
         stroke(0);
         strokeWeight(2);
         rotate(angle);
-        // imageMode(CENTER);
-        // image(piggy,0, 0, this.width, this.height);
-        rectMode(CENTER);
-        rect(0, 0, this.width, this.height); // Draw the box
+        imageMode(CENTER);
+        image(this.image, 0, 0, this.width, this.height);
        
        
         pop();
