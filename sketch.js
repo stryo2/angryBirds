@@ -7,12 +7,6 @@ let engine;
 let world;
 let mConstraint;
 let slingshot;
-let birdy;
-let piggy;
-function preload() {
-    birdy = loadImage('bluebird.png'); 
-    piggy = loadImage('greenpig.png'); // Load the pig image
-}
 
 function setup() {
     const  canvas =createCanvas(600, 400);
@@ -35,9 +29,7 @@ function setup() {
 }
 function keyPressed() {
     if (key == ' ') { // Space key
-       World.remove(world, bird.body); // Remove the current bird
-       bird = new Bird(100,300,20);
-       slingshot.attach(bird.body); 
+       //
     }
 }
 function mouseReleased() {

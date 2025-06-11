@@ -1,3 +1,4 @@
+//imports bird class and adds redbird class basic functionality
 class Box{
     constructor(x, y, width, height) {
        var options={
@@ -18,8 +19,10 @@ class Box{
         stroke(0);
         strokeWeight(2);
         rotate(angle);
-        imageMode(CENTER);
-        image(piggy,0, 0, this.width, this.height);
+        // imageMode(CENTER);
+        // image(piggy,0, 0, this.width, this.height);
+        rectMode(CENTER);
+        rect(0, 0, this.width, this.height); // Draw the box
        
        
         pop();

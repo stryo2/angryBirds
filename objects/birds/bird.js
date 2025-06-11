@@ -1,11 +1,9 @@
-
-
 class Bird{
     constructor(x, y, r) {
        var  options = {    
             restitution: 0.5, // Bounciness
             friction: 0.1, // Friction
-            density: 0.5 // Density
+            density: 0.2 // Density
         };
         this.body = Matter.Bodies.circle(x, y, r, options);
         Matter.World.add(world, this.body);
@@ -18,8 +16,10 @@ class Bird{
         translate(pos.x, pos.y);
         fill(255);
         rotate(angle);
-        imageMode(CENTER);
-        image(birdy,0, 0, this.r * 2, this.r * 2); // Draw the bird image
+        // imageMode(CENTER);
+        // image(redbird,0, 0, this.r * 2, this.r * 2); // Draw the bird image
+        circle(0, 0, this.r * 2); // Draw the bird as a circle
+        rectMode(CENTER);
         pop();
     }
 }
