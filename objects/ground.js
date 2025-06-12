@@ -9,9 +9,9 @@ class Ground extends Box{
         const angle = this.body.angle;
         push();
         translate(pos.x, pos.y);
-        fill(20, 150, 20);
-        stroke(0);
-        strokeWeight(2);
+        fill(24, 115, 57);
+        stroke(4, 99, 39);
+        strokeWeight(4);
         rotate(angle);
          rectMode(CENTER);
         rect(0, 0, this.width, this.height);

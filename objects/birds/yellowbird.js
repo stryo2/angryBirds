@@ -20,7 +20,7 @@ class YellowBird extends Bird {
 
     powerup() {
         Matter.Body.setVelocity(this.body, {
-            x: this.body.velocity.x *3, // Double the x velocity for speed boost
+            x: this.body.velocity.x *4, 
             y: this.body.velocity.y
         });
     }

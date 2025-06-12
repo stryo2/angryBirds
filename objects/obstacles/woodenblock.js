@@ -1,11 +1,10 @@
-// extends box class and adds woodenbox that breaks when fallen to ground
-class WoodenBox extends Box {
+class WoodenBlock extends Box {
     constructor(x, y, width, height) {
         super(x, y, width, height);
         this.body.restitution = 0; // Lower bounciness
         this.body.friction = 3; // Higher friction
-        this.body.density = 3; // Lower density for wooden-like behavior
-        this.image = loadImage('data/obstacles/woodenbox.png'); 
+        this.body.density = 2; // Lower density for wooden-like behavior
+        this.image = loadImage('data/obstacles/woodenblock.png'); 
     }
 
     show() {

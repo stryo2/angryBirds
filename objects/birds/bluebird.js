@@ -21,24 +21,33 @@ class BlueBird extends Bird {
 
     powerup() {
         if (!this.divided) {
-            // Create two smaller birds when divided
-            const smallBird1 = new BlueBird(this.body.position.x, this.body.position.y-10, this.r /1.5);
-            const smallBird2 = new BlueBird(this.body.position.x, this.body.position.y+10, this.r /1.5);
-            const smallBird3= new BlueBird(this.body.position.x, this.body.position.y, this.r /1.5);
-            Matter.Body.mass = 0.1;
-            Matter.World.add(world, [smallBird1.body, smallBird2.body, smallBird3.body]);
-              // Apply velocity to split birds to give them different trajectories
-             const speed = 7;
+             const x = this.body.position.x;
+        const y = this.body.position.y;
+        const r = this.r / 2;
 
-             Matter.Body.setVelocity(smallBird2.body, { x: speed*1.5, y: -speed });      // top-right
-             Matter.Body.setVelocity(smallBird3.body, { x: speed*1.5, y: 0 });           // middle-right
-             Matter.Body.setVelocity(smallBird1.body, { x: speed*1.5, y: speed });       // bottom-right
+        // Create 3 small birds with vertical offsets
+        const smallBird1 = new BlueBird(x, y - 15, r); // top
+        const smallBird2 = new BlueBird(x, y, r);      // middle
+        const smallBird3 = new BlueBird(x, y + 15, r); // bottom
 
-             
-            splitBirds.push(smallBird1, smallBird2, smallBird3);
-           
-            Matter.World.remove(world, this.body);
-            this.divided = true; // Set the flag to true to prevent further division
+        // Add to Matter.js world
+        Matter.World.add(world, [smallBird1.body, smallBird2.body, smallBird3.body]);
+
+        // Add to splitBirds array
+        splitBirds.push(smallBird1, smallBird2, smallBird3);
+
+        // Use the same moderate rightward speed
+        const vx = 10;
+        const vy = 5;
+
+        // Apply clean directional velocities (top-right, right, bottom-right)
+        Matter.Body.setVelocity(smallBird1.body, { x: vx, y: -vy }); // top-right
+        Matter.Body.setVelocity(smallBird2.body, { x: vx, y: 0 });   // middle-right
+        Matter.Body.setVelocity(smallBird3.body, { x: vx, y: vy });  // bottom-right
+
+        // Remove the original bird
+        Matter.World.remove(world, this.body);
+        this.divided = true;
         }
     }
 }
