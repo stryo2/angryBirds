@@ -15,7 +15,6 @@ A web-based Angry Birds clone built using **p5.js** for rendering and **Matter.j
 
 - **Mouse drag & release** to launch the bird
 - **Spacebar** to activate the bird’s powerup
-- **R** to restart the current level (if implemented)
 - **N** to go to the next level (in future updates)
 
 ## 🐛 Known Bugs
