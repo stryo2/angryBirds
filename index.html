@@ -22,12 +22,38 @@
 
     <script src="objects/ground.js"></script>
      <script src="sketch.js"></script>
-    
-    
-   
-    
+       
 </head>
 <body>
-    
+    <div id="gameContainer">
+        <div id="startOverlay">
+            <h1>Welcome to Angry Birds</h1>
+            <div class="blue-bird"></div>
+            <div class="instructions">
+                Use your <b>mouse</b> to pull and release the slingshot.<br>
+                Press <b>Space</b> to use your bird's powerup!
+            </div>
+            <button id="playBtn">Play</button>
+        </div>
+        <!-- The canvas will be created by p5.js inside this container -->
+    </div>
+    <script>
+        let canvas;
+
+    window.setup = function () {
+        // Do not call realSetup yet. Only create the canvas and pause.
+        canvas = createCanvas(1000, 600);
+        canvas.parent('gameContainer');
+        noLoop(); // prevent draw() from running yet
+    };
+
+   document.getElementById('playBtn').onclick = function () {
+  document.getElementById('startOverlay').style.display = 'none';
+  if (typeof window.realSetup === 'function') window.realSetup();
+  loop();
+  canvas.elt.focus();
+  gameStarted = true; 
+};
+    </script>
 </body>
 </html>

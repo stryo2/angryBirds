@@ -38,9 +38,8 @@ class BlueBird extends Bird {
 
         // Use the same moderate rightward speed
         const vx = 10;
-        const vy = 5;
+        const vy = 2;
 
-        // Apply clean directional velocities (top-right, right, bottom-right)
         Matter.Body.setVelocity(smallBird1.body, { x: vx, y: -vy }); // top-right
         Matter.Body.setVelocity(smallBird2.body, { x: vx, y: 0 });   // middle-right
         Matter.Body.setVelocity(smallBird3.body, { x: vx, y: vy });  // bottom-right

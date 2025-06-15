@@ -10,10 +10,11 @@ let mConstraint;
 let slingshot;
 let currentBirdIndex = 0;
 let splitBirds = []; // stores clones created by blue bird
+let gameStarted = false;
 
 
-function setup() {
-    const  canvas =createCanvas(1000,600);
+function realSetup() {
+    // const  canvas =createCanvas(1000,600);
     engine = Engine.create();
     world = engine.world;
     
@@ -78,6 +79,7 @@ function setup() {
     World.add(world, mConstraint);
 }
 function keyPressed() {
+    
     if(key ==' '){
         // use space to use powerup of the bird currently in use and after that switch to next bird 
             bird.powerup(); // Use the powerup
@@ -96,11 +98,12 @@ function keyPressed() {
               bird.body.force.y = 0;
               slingshot = new SlingShot(slingX, slingY, bird.body);
         }, 1000);
-
+     
 
     }
 }
 function mouseReleased() {
+    if (!gameStarted) return;
     setTimeout(() => {
         slingshot.fly();
     }, 120);
